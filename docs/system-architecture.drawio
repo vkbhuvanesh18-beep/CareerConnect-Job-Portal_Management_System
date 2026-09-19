@@ -1,0 +1,15 @@
+<mxfile host="app.diagrams.net" modified="2026-09-18T00:00:00.000Z" agent="CareerConnect" version="24.7.17">
+  <diagram id="architecture" name="Three-Tier Architecture">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" page="1" pageWidth="1169" pageHeight="827">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="client" value="Presentation Layer&#xa;Browser&#xa;HTML5 • CSS Grid/Flexbox • JavaScript Fetch API&#xa;Thymeleaf served by Spring Boot, no separate :5500 server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" vertex="1" parent="1"><mxGeometry x="60" y="270" width="280" height="170" as="geometry"/></mxCell>
+        <mxCell id="app" value="Application Layer&#xa;Spring Boot 3&#xa;Spring MVC Controllers • Security • Matching Service • Notification Service • REST API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;" vertex="1" parent="1"><mxGeometry x="430" y="250" width="310" height="210" as="geometry"/></mxCell>
+        <mxCell id="db" value="Persistence Layer&#xa;Spring Data JPA / Hibernate&#xa;H2 local development • MySQL 8 deployment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" vertex="1" parent="1"><mxGeometry x="850" y="290" width="260" height="130" as="geometry"/></mxCell>
+        <mxCell id="arrow1" value="HTTP :8080 / REST JSON" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="client" target="app"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="arrow2" value="JPA entities / MySQL :3306" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="app" target="db"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

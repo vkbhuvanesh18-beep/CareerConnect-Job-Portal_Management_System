@@ -1,0 +1,16 @@
+<mxfile host="app.diagrams.net" modified="2026-09-18T00:00:00.000Z" agent="CareerConnect" version="24.7.17">
+  <diagram id="dfd-level-0" name="DFD Level 0 - Context Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" page="1" pageWidth="1169" pageHeight="827">
+      <root>
+        <mxCell id="0"/><mxCell id="1" parent="0"/>
+        <mxCell id="seeker" value="Job Seeker" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=16;" vertex="1" parent="1"><mxGeometry x="90" y="290" width="80" height="150" as="geometry"/></mxCell>
+        <mxCell id="portal" value="CareerConnect Job Portal&#xa;Registration • Profile • Job Search&#xa;Application Match Score • Status Notifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=18;" vertex="1" parent="1"><mxGeometry x="400" y="240" width="360" height="220" as="geometry"/></mxCell>
+        <mxCell id="admin" value="Recruiter / Administrator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=16;" vertex="1" parent="1"><mxGeometry x="1010" y="290" width="100" height="150" as="geometry"/></mxCell>
+        <mxCell id="f1" value="registration, profile, search, application" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="seeker" target="portal"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f2" value="job details, match score, application status, notifications" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="portal" target="seeker"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f3" value="job post, candidate filter, recruitment stage, interview time" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="admin" target="portal"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f4" value="candidate list, match score, application information" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="portal" target="admin"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

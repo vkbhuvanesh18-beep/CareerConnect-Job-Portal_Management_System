@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Add Job | CareerConnect</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/css/admin.css" rel="stylesheet">
+</head>
+<body>
+<nav class="admin-nav navbar navbar-dark"><div class="container"><a class="navbar-brand d-flex align-items-center gap-2" href="/"><span class="brand-icon"><i class="bi bi-briefcase-fill"></i></span>CareerConnect <span class="admin-pill">ADMIN</span></a><a class="btn btn-outline-light btn-sm" href="/admin/jobs"><i class="bi bi-arrow-left"></i> Back to Jobs</a></div></nav>
+<main class="container py-4 py-md-5"><div class="form-layout-wide">
+  <section class="page-heading d-flex flex-wrap justify-content-between align-items-end gap-3"><div><p class="eyebrow">NEW OPPORTUNITY</p><h1>Create a Job Post</h1><p class="mb-0">Complete the details once. CareerConnect will use skills and experience for candidate matching.</p></div><button id="fillSample" class="btn btn-outline-primary" type="button"><i class="bi bi-magic"></i> Fill sample job</button></section>
+  <div class="row g-4 align-items-start">
+    <div class="col-lg-8"><div class="dashboard-card p-4 p-md-5"><form id="jobForm" method="post" action="/admin/jobs" th:object="${job}">
+      <div class="form-section"><div><span class="section-number">1</span><h2>Role details</h2><p>Help candidates quickly understand the opportunity.</p></div><div class="row g-3 mt-0">
+        <div class="col-md-6"><label class="form-label" for="title">Job title <span class="required">*</span></label><input id="title" class="form-control" placeholder="e.g. Software Developer" th:field="*{title}" required autocomplete="organization-title"></div>
+        <div class="col-md-6"><label class="form-label" for="companyName">Company name <span class="required">*</span></label><input id="companyName" class="form-control" placeholder="e.g. CareerConnect Pvt. Ltd." th:field="*{companyName}" required></div>
+        <div class="col-md-6"><label class="form-label" for="location">Location <span class="required">*</span></label><input id="location" class="form-control" placeholder="e.g. Chennai" th:field="*{location}" required></div>
+        <div class="col-md-6"><label class="form-label" for="category">Category <span class="required">*</span></label><select id="category" class="form-select" th:field="*{category}" required><option value="">Choose a category</option><option value="Information Technology">Information Technology</option><option value="Human Resources">Human Resources</option><option value="Sales">Sales</option><option value="Marketing">Marketing</option><option value="Finance">Finance</option><option value="Design">Design</option><option value="Operations">Operations</option><option value="Other">Other</option></select></div>
+      </div></div>
+      <div class="form-section"><div><span class="section-number">2</span><h2>Candidate requirements</h2><p>These fields create the match score shown to recruiters.</p></div><div class="row g-3 mt-0">
+        <div class="col-md-8"><label class="form-label" for="requiredSkills">Required skill tags</label><input id="requiredSkills" class="form-control" placeholder="Java, Spring Boot, MySQL" th:field="*{requiredSkills}"><div class="form-text">Separate every skill with a comma.</div></div>
+        <div class="col-md-4"><label class="form-label" for="minimumExperienceYears">Minimum experience</label><div class="input-group"><input id="minimumExperienceYears" type="number" min="0" max="50" class="form-control" th:field="*{minimumExperienceYears}"><span class="input-group-text">years</span></div></div>
+      </div></div>
+      <div class="form-section"><div><span class="section-number">3</span><h2>Publishing details</h2><p>Set the salary, deadline, and clear responsibilities.</p></div><div class="row g-3 mt-0">
+        <div class="col-md-6"><label class="form-label" for="salary">Monthly salary (₹) <span class="required">*</span></label><input id="salary" type="number" min="1" class="form-control" placeholder="e.g. 35000" th:field="*{salary}" required></div>
+        <div class="col-md-6"><label class="form-label" for="deadline">Application deadline <span class="required">*</span></label><input id="deadline" type="date" class="form-control" th:field="*{deadline}" required></div>
+        <div class="col-12"><label class="form-label d-flex justify-content-between" for="description"><span>Job description <span class="required">*</span></span><span id="descriptionCount" class="text-muted fw-normal">0 / 3000</span></label><textarea id="description" class="form-control" rows="6" maxlength="3000" placeholder="Include responsibilities, qualifications, and what makes this role valuable..." th:field="*{description}" required></textarea></div>
+      </div></div>
+      <div class="d-flex flex-wrap align-items-center gap-3 mt-4"><button class="btn btn-primary px-4 py-2" type="submit"><i class="bi bi-check-lg"></i> Publish Job</button><a class="btn btn-light border px-4 py-2" href="/admin/jobs">Cancel</a><span class="text-muted small"><i class="bi bi-shield-check"></i> Required fields are marked with *</span></div>
+    </form></div></div>
+    <aside class="col-lg-4"><div class="publish-panel"><p class="eyebrow">LIVE SUMMARY</p><h2 id="previewTitle">Your job title</h2><p id="previewCompany" class="fw-semibold mb-1">Company name</p><p id="previewLocation" class="text-muted mb-3"><i class="bi bi-geo-alt"></i> Location</p><div id="previewCategory" class="category-badge mb-3">Category</div><div class="summary-line"><i class="bi bi-tools"></i><span id="previewSkills">Add required skills</span></div><div class="summary-line"><i class="bi bi-briefcase"></i><span id="previewExperience">0 years minimum experience</span></div><div class="summary-line"><i class="bi bi-cash-stack"></i><span id="previewSalary">Salary not set</span></div><hr><p class="small text-muted mb-0"><i class="bi bi-info-circle"></i> Candidates will see this summary before applying.</p></div><div class="help-panel mt-3"><h3><i class="bi bi-lightning-charge"></i> Quick posting tips</h3><ol class="mb-0"><li>Use a specific job title.</li><li>List only essential skills.</li><li>Set a realistic deadline.</li></ol></div></aside>
+  </div>
+</div></main>
+<script src="/js/admin-job-form.js"></script>
+</body></html>

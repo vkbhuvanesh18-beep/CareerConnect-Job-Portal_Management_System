@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerConnect Viva Presentation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress-track" aria-hidden="true"><div id="progress-bar"></div></div>
+  <main class="deck" aria-live="polite">
+    <section class="slide active title-slide" aria-label="Slide 1: Title">
+      <p class="eyebrow">Full-Stack Engineering Project</p>
+      <h1>CareerConnect</h1>
+      <p class="subtitle">Job Portal Management System</p>
+      <div class="title-rule"></div>
+      <div class="team-grid">
+        <div><strong>Team ID</strong><span>10</span></div>
+        <div><strong>Department</strong><span>CSE-AI</span></div>
+        <div><strong>Institution</strong><span>Sathyabama Institute of Science and Technology</span></div>
+        <div><strong>Academic Year</strong><span>2024-2028</span></div>
+      </div>
+      <p class="team-note">Student names and register numbers will be added after the team details are provided.</p>
+    </section>
+
+    <section class="slide" aria-label="Slide 2: Introduction">
+      <p class="eyebrow">01. Context</p><h2>Introduction and industry background</h2>
+      <div class="two-column">
+        <div><p>Recruitment portals connect job seekers with employers, but high volumes of generic listings make relevant opportunities difficult to find.</p><p>Recruiters also need a quick way to compare applicants against job requirements without manually reviewing every profile.</p></div>
+        <aside class="quote">CareerConnect focuses on structured profile data, job requirements, transparent matching, and application tracking.</aside>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="Slide 3: Problem statement">
+      <p class="eyebrow">02. Define</p><h2>Problem statement and real-world inefficiencies</h2>
+      <div class="feature-grid three">
+        <article><h3>Generic listings</h3><p>Job seekers spend time opening irrelevant or outdated posts.</p></article>
+        <article><h3>Manual screening</h3><p>Recruiters compare skills and experience by hand for each candidate.</p></article>
+        <article><h3>Unclear progress</h3><p>Candidates need a clear view of application stages and interview updates.</p></article>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="Slide 4: Existing system">
+      <p class="eyebrow">03. Define</p><h2>Existing system and bottlenecks</h2>
+      <table><thead><tr><th>Existing practice</th><th>Limitation</th><th>Effect</th></tr></thead><tbody>
+        <tr><td>Unstructured candidate data</td><td>Skills and experience are difficult to compare</td><td>Slow shortlisting</td></tr>
+        <tr><td>Manual applicant tracking</td><td>Recruiters update status across separate records</td><td>Missed follow-up</td></tr>
+        <tr><td>Static job browsing</td><td>Little guidance on fit</td><td>Lower-quality applications</td></tr>
+      </tbody></table>
+    </section>
+
+    <section class="slide" aria-label="Slide 5: Proposed system">
+      <p class="eyebrow">04. Solution</p><h2>Proposed centralized three-tier solution</h2>
+      <div class="architecture">
+        <div><b>Presentation layer</b><span>Thymeleaf, HTML5, CSS Grid/Flexbox, Fetch API</span></div>
+        <div><b>Application layer</b><span>Spring Boot MVC, Security, matching, notifications</span></div>
+        <div><b>Persistence layer</b><span>JPA repositories, H2 local database, MySQL profile</span></div>
+      </div>
+      <p class="caption">One portal connects candidate activity, recruiter actions, and persistent data.</p>
+    </section>
+
+    <section class="slide" aria-label="Slide 6: Objectives">
+      <p class="eyebrow">05. Objectives</p><h2>Project objectives</h2>
+      <div class="feature-grid two">
+        <article><h3>Relevant applications</h3><p>Collect verified skill tags, education, experience years, and portfolio information.</p></article>
+        <article><h3>Explainable matching</h3><p>Calculate a 0 to 100 compatibility score from required skills and experience.</p></article>
+        <article><h3>Recruiter workflow</h3><p>Post jobs, filter candidates by score, update stages, and schedule interviews.</p></article>
+        <article><h3>Candidate updates</h3><p>Create in-portal notifications when an application stage changes.</p></article>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="Slide 7: Features">
+      <p class="eyebrow">06. Implemented features</p><h2>Key functional features</h2>
+      <ul class="check-list">
+        <li>Registration and login with BCrypt password hashing</li>
+        <li>Job seeker profile with skill tags, qualification, experience, and portfolio URL</li>
+        <li>Job posting with required skills and minimum experience</li>
+        <li>Compatibility score using 80% skills and 20% experience</li>
+        <li>Application stages: Applied, Shortlisted, Interview, Offered, Rejected</li>
+        <li>Admin score filter, interview scheduling, and in-portal notifications</li>
+      </ul>
+    </section>
+
+    <section class="slide" aria-label="Slide 8: Technology stack">
+      <p class="eyebrow">07. Technology stack</p><h2>Technology stack used in CareerConnect</h2>
+      <div class="stack-list">
+        <div><b>Frontend</b><span>HTML5, Thymeleaf, CSS3, JavaScript Fetch API</span></div>
+        <div><b>Backend</b><span>Java 21, Spring Boot 3, Spring MVC, Spring Security</span></div>
+        <div><b>Persistence</b><span>Spring Data JPA, H2 for local demo, MySQL 8 deployment profile</span></div>
+        <div><b>Tools</b><span>Maven Wrapper, Draw.io diagrams, browser testing</span></div>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="Slide 9: Architecture and ports">
+      <p class="eyebrow">08. System design</p><h2>System architecture and port flow</h2>
+      <div class="port-flow"><div><strong>Browser</strong><span>HTML, CSS, JavaScript</span><em>:8080</em></div><i>→</i><div><strong>Spring Boot</strong><span>Controllers and services</span><em>:8080</em></div><i>→</i><div><strong>Database</strong><span>H2 locally or MySQL</span><em>:3306</em></div></div>
+      <p class="note">The project does not use a separate :5500 frontend server. Thymeleaf pages are served directly by Spring Boot on :8080.</p>
+    </section>
+
+    <section class="slide" aria-label="Slide 10: Modules">
+      <p class="eyebrow">09. Application modules</p><h2>Application modules</h2>
+      <div class="feature-grid three">
+        <article><h3>Authentication</h3><p>Register, log in, and role-based navigation.</p></article>
+        <article><h3>Job discovery</h3><p>Browse active jobs, inspect details, and search JSON job data.</p></article>
+        <article><h3>Seeker profile</h3><p>Store skills, qualification, experience, and portfolio link.</p></article>
+        <article><h3>Applications</h3><p>Apply once, receive a score, and track recruitment status.</p></article>
+        <article><h3>Admin jobs</h3><p>Create and manage job posts with skill requirements.</p></article>
+        <article><h3>Admin pipeline</h3><p>Filter candidates, change status, and set interview time.</p></article>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="Slide 11: Database design">
+      <p class="eyebrow">10. Database design</p><h2>3NF relational database design</h2>
+      <table><thead><tr><th>Table</th><th>Purpose</th><th>Key relationship</th></tr></thead><tbody>
+        <tr><td>portal_users</td><td>Account, email, encrypted password, role</td><td>Primary key: id</td></tr>
+        <tr><td>job_seeker_profile</td><td>Candidate profile details</td><td>One-to-one user_id</td></tr>
+        <tr><td>job</td><td>Job details and match requirements</td><td>Primary key: id</td></tr>
+        <tr><td>job_application</td><td>Candidate-to-job relationship</td><td>Unique job_id + applicant_id</td></tr>
+        <tr><td>portal_notification</td><td>Application stage messages</td><td>Foreign key: recipient_id</td></tr>
+      </tbody></table>
+    </section>
+
+    <section class="slide" aria-label="Slide 12: Data flow">
+      <p class="eyebrow">11. Data flow</p><h2>Data flow diagrams</h2>
+      <div class="two-column"><div><h3>Level 0 context</h3><p>Job seeker and administrator interact with CareerConnect. The portal returns jobs, application status, and notifications.</p><h3>Level 1 processes</h3><p>Profile management, job search, application scoring, recruiter status updates, and notification creation use the same application database.</p></div><div class="flow-list"><span>Job seeker submits profile</span><span>Portal computes match score</span><span>Administrator changes pipeline status</span><span>Portal stores notification</span></div></div>
+    </section>
+
+    <section class="slide" aria-label="Slide 13: User journey">
+      <p class="eyebrow">12. Workflow</p><h2>End-to-end user journey</h2>
+      <ol class="journey"><li>Create account and sign in</li><li>Complete candidate profile</li><li>Search active opportunities</li><li>Review match score and apply</li><li>Track application stage</li><li>Read interview and status notifications</li></ol>
+    </section>
+
+    <section class="slide" aria-label="Slide 14: Frontend">
+      <p class="eyebrow">13. Frontend</p><h2>Responsive interface and accessible forms</h2>
+      <div class="feature-grid two"><article><h3>Clear navigation</h3><p>Pages support job discovery, profile management, application tracking, and administration.</p></article><article><h3>Structured forms</h3><p>Profile and job forms guide users through required details and use helpful labels.</p></article><article><h3>Responsive layout</h3><p>CSS Grid and Flexbox adapt cards, forms, and actions across screen sizes.</p></article><article><h3>Live job data</h3><p>The home page Fetch API requests current job data from the Spring Boot JSON endpoint.</p></article></div>
+    </section>
+
+    <section class="slide" aria-label="Slide 15: Backend">
+      <p class="eyebrow">14. Backend</p><h2>Java backend engine</h2>
+      <div class="layer-list"><div><strong>Controllers</strong><span>AuthController, SeekerController, AdminController, JobApiController</span></div><div><strong>Services</strong><span>MatchingService, NotificationService, user authentication service</span></div><div><strong>Repositories</strong><span>JPA repositories for jobs, profiles, applications, users, notifications</span></div><div><strong>Configuration</strong><span>SecurityConfig, WebConfig, DataInitializer</span></div></div>
+      <p class="note">The implementation uses JPA repositories instead of a separate DAO layer.</p>
+    </section>
+
+    <section class="slide" aria-label="Slide 16: CRUD">
+      <p class="eyebrow">15. Persistence</p><h2>Database CRUD operations</h2>
+      <table><thead><tr><th>Operation</th><th>CareerConnect example</th><th>Persistence handling</th></tr></thead><tbody>
+        <tr><td>Create</td><td>Register user, save profile, post job, submit application</td><td>JPA entity save</td></tr>
+        <tr><td>Read</td><td>Search jobs, view applications, filter candidates</td><td>Repository queries</td></tr>
+        <tr><td>Update</td><td>Save profile, update recruitment stage, schedule interview</td><td>JPA managed entity update</td></tr>
+        <tr><td>Constraint</td><td>Prevent repeated application to the same job</td><td>Unique job_id and applicant_id rule</td></tr>
+      </tbody></table>
+      <p class="note">Spring Data JPA manages parameter binding and database access. The current project does not use raw JDBC queries.</p>
+    </section>
+
+    <section class="slide" aria-label="Slide 17: Testing">
+      <p class="eyebrow">16. Quality assurance</p><h2>Acceptance criteria verification</h2>
+      <table><thead><tr><th>Requirement</th><th>Verification</th><th>Result</th></tr></thead><tbody>
+        <tr><td>Structured seeker profile</td><td>Save skills, qualification, experience, portfolio</td><td class="pass">Passed</td></tr>
+        <tr><td>Compatibility score</td><td>Calculate score for job and profile</td><td class="pass">Passed</td></tr>
+        <tr><td>Admin candidate filter</td><td>Filter application list by minimum score</td><td class="pass">Passed</td></tr>
+        <tr><td>Stage notification</td><td>Change status and check candidate notification list</td><td class="pass">Passed</td></tr>
+      </tbody></table>
+    </section>
+
+    <section class="slide" aria-label="Slide 18: Working results">
+      <p class="eyebrow">17. Demonstration</p><h2>Live working results</h2>
+      <div class="result-layout"><div class="metric"><b>0–100</b><span>Compatibility score stored with each application</span></div><div class="metric"><b>1 click</b><span>Recruiter stage update from the admin pipeline</span></div><div class="metric"><b>2 APIs</b><span>JSON job listing and job detail endpoints</span></div></div>
+      <p>The local system runs at <code>http://localhost:8080</code>. The administrator can create job posts, filter candidates, update stages, and schedule interviews.</p>
+    </section>
+
+    <section class="slide" aria-label="Slide 19: Future enhancements">
+      <p class="eyebrow">18. Future scope</p><h2>Future enhancements and scalability</h2>
+      <div class="feature-grid two"><article><h3>Email delivery</h3><p>Connect an SMTP provider so stage changes also send email messages.</p></article><article><h3>Resume parsing</h3><p>Extract skills and experience from uploaded resumes after secure file validation.</p></article><article><h3>Production deployment</h3><p>Publish to a cloud host with MySQL, environment variables, and HTTPS.</p></article><article><h3>Advanced matching</h3><p>Add weighted skill levels and recruiter-configurable match thresholds.</p></article></div>
+    </section>
+
+    <section class="slide conclusion" aria-label="Slide 20: Conclusion">
+      <p class="eyebrow">19. Conclusion</p><h2>CareerConnect summary</h2>
+      <p class="large-copy">CareerConnect combines responsive web pages, Spring Boot services, JPA persistence, and a structured recruitment workflow in one college project.</p>
+      <div class="two-column"><div><h3>Key learning</h3><p>Full-stack integration requires clear data design, secure access control, testable workflows, and a usable interface.</p></div><div><h3>Viva discussion</h3><p>Questions are welcome on the architecture, scoring method, database design, security, testing, or deployment plan.</p></div></div>
+      <p class="thank-you">Thank you</p>
+    </section>
+  </main>
+
+  <footer class="controls" aria-label="Presentation controls">
+    <button id="prev" type="button">← Prev</button>
+    <div class="slide-status"><span id="counter">Slide 1 / 20</span><span id="slide-title">CareerConnect</span></div>
+    <button id="next" type="button">Next →</button>
+    <button id="fullscreen" type="button" class="quiet-button" aria-label="Toggle full screen">Full screen</button>
+  </footer>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const counter = document.getElementById('counter');
+    const title = document.getElementById('slide-title');
+    const progress = document.getElementById('progress-bar');
+    let current = 0;
+    function show(index, updateHash = true) {
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+      counter.textContent = `Slide ${current + 1} / ${slides.length}`;
+      title.textContent = slides[current].querySelector('h1, h2').textContent;
+      progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+      document.title = `${current + 1}. ${title.textContent} | CareerConnect`;
+      document.getElementById('prev').disabled = current === 0;
+      document.getElementById('next').disabled = current === slides.length - 1;
+      if (updateHash) history.replaceState(null, '', `#slide-${current + 1}`);
+    }
+    document.getElementById('prev').addEventListener('click', () => show(current - 1));
+    document.getElementById('next').addEventListener('click', () => show(current + 1));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft' || event.key === 'PageUp') show(current - 1);
+      if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') { event.preventDefault(); show(current + 1); }
+      if (event.key === 'Home') show(0);
+      if (event.key === 'End') show(slides.length - 1);
+      if (event.key.toLowerCase() === 'f') document.getElementById('fullscreen').click();
+    });
+    document.getElementById('fullscreen').addEventListener('click', async () => {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await document.documentElement.requestFullscreen();
+    });
+    window.addEventListener('hashchange', () => {
+      const requested = Number(location.hash.replace('#slide-', ''));
+      if (Number.isInteger(requested) && requested >= 1 && requested <= slides.length) show(requested - 1, false);
+    });
+    const requested = Number(location.hash.replace('#slide-', ''));
+    show(Number.isInteger(requested) && requested >= 1 && requested <= slides.length ? requested - 1 : 0, false);
+  </script>
+</body>
+</html>
